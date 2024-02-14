@@ -4,6 +4,8 @@ let yesChosen = false;
 let noChosen = false; 
 let noButton: HTMLButtonElement;
 
+const names = ["Sweetheart", "Cupcake","Honeybee","Sweetie Pie","Buttercup","Snugglebug","Sugarplum","Pumpkin","Lovebug","Cutie Pie","Marshmallow","Pudding","Angel Face","Peachy","Jellybean","Cuddle Bunny","Darling","Cherry Blossom","Sunshine","Bumblebee","Precious","Sweetheart","Daisy","Little Dove","Lollipop","Sprinkles","Baby Doll","Petal","Cinnamon","Sweet Pea","Cookie","Bluebell","Gumdrop","Cherry","Angel Cake","Sweets","Cupid","Marshmallow","Tootsie","Lovebird","Twinkle","Pixie","Honeydew","Sweetums","Gummi Bear","Candy","Fluffy","Sparkle","Lovey","Fairy","Starlight"];
+
 const submitForm = (e) => {
 e.preventDefault();
 
@@ -27,6 +29,12 @@ if (noChosen) {
   noChosen = false;
 }
 
+
+$: chosenName = names[Math.trunc(Math.random() * names.length -1)];
+
+
+console.log(Math.random() * names.length -1)
+
 </script>
 
 <main>
@@ -49,7 +57,7 @@ if (noChosen) {
 </div>
  {:else} 
  <div class="number">
-   <p>Here's my number sweetheart</p>
+   <p>Here's my number {chosenName}</p>
    <p>630-303-8467</p>
   </div>
 {/if}
@@ -108,7 +116,9 @@ color: var(--errorColorL30);
 main {
   background-color: var(--errorColorD40);
   width: 100vw;
-  height: 100lvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  /* min-height: -webkit-fill-available; */
   display: flex;
   align-items: center;
   justify-content: center;
